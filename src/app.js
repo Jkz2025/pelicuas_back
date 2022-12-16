@@ -5,7 +5,7 @@ import {PORT} from './config.js'
 const app = express()
 
 app.get('/', async (req, res) => {
-    const rows = await BD.query('SELECT from peliculas')
+    const rows = await BD.query('SELECT* from peliculas')
     res.json(rows)
 })
 
