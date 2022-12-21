@@ -2,6 +2,9 @@ import express from 'express'
 import {BD} from './db.js'
 import {PORT} from './config.js'
 
+
+const app = express()
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
@@ -10,7 +13,6 @@ app.use((req, res, next) => {
     next();
   });
 
-const app = express()
 
 app.get('/', async (req, res) => {
     const rows = await BD.query('SELECT* from peliculas')
